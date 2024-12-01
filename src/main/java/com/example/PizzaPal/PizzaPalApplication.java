@@ -23,7 +23,7 @@ public class PizzaPalApplication {
 				/* prompts user to enter account creation information for new account, will return an error if accunt
 					if account not created successfully
 				*/
-				System.out.println("Please enter your first name: );
+				System.out.println("Please enter your first name: ");
 					String firstName = in.next();
 				System.out.println("Please enter your last name: ");
 					String lastName = in.next();
