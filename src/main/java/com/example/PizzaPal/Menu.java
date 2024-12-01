@@ -23,7 +23,7 @@ public class Menu {
     public void displayMenu() {
         System.out.println("Todays Menu: ");
         menuItems.forEach(item ->
-                System.out.println(item.getId() + ": " + item.getName() + " - $" + item.getPrice());
+                System.out.println(item.getId() + ": " + item.getName() + " - $" + item.getPrice()));
     }
 
     //allow managers to add items
@@ -69,9 +69,9 @@ public class Menu {
     }
 
 
-    public Order getUserOrder(int orderNumber){
+    public Order getOrderId(int orderNumber){
         return orders.stream()
-                .filter(o -> Order.getOrderId() == orderNumber)
+                .filter(order -> order.getOrderId() == orderNumber)
                 .findFirst()
                 .orElse(null);
     }
@@ -95,8 +95,8 @@ public class Menu {
 
 
     private MenuItem getMenuItemById (int id){
-        return menuItem.stream()
-                .filter(item -> item.getId() == id)
+        return menuItems.stream()
+                .filter(item -> item.getId() == (id))
                 .findFirst()
                 .orElse(null);
     }
