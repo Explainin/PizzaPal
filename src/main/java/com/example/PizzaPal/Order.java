@@ -20,6 +20,10 @@ public class Order {
     }
 
     //getters
-    public Order getOrderId(User user) {return ;}
+    public int getOrderId() {return orderId;}
     public List <MenuItem> getItems() {return items;}
+
+
+    public User getUser() {
+        return user;}
 }

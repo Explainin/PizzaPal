@@ -23,21 +23,37 @@ public class Manager extends Employee {
             System.out.println("Order not found/Does not exist");
         }
     }
+//user has an edit payment, pass it null for first two values and then change last one,
 
-
-    public void editOrderPaymentDetails(int orderNumber, List<Order> orders, String newPaymentDetails){
-        Order order = orders.stream()
-                .filter(o -> o.getOrderId() == orderNumber)
+    public void editOrderPaymentDetails(String phoneNumber, List<User> users, String newPaymentDetails){
+       //would need to receive a user, if user is valid,  change details with given, else return user not found
+        User user = users.stream()
+                .filter(u -> u.getPhoneNumber().equals(phoneNumber))
                 .findFirst()
                 .orElse(null);
+            if(user != null) {
+                user.editDetails(null, null, newPaymentDetails);
+                System.out.println("User payment details updated");
+            }
+            else{
+                System.out.println("User does not exist");
+            }
+
+
+
+        /*
+        //user.editDetails(null, null, newPaymentDetails);
+        this.orderNumber = orderNumber;
 
         if(order != null) {
-            order.getUser().editDetails(null, null, newPaymentDetails);
+           user.editDetails(orderNumber, orders, newPaymentDetails);
             System.out.println("Payment details updated for Order #" + orderNumber );
         }
         else{
             System.out.println("Order not found/Does not exist");
         }
+
+        */
     }
 
 
@@ -46,9 +62,11 @@ public class Manager extends Employee {
     public void editMenu(Menu menu, MenuItem newItem, boolean addItem){
         if (addItem){
             menu.addMenuItem(newItem, this);
+            System.out.println("Menu item added!");
         }
         else {
-            menu.removeMenuItem(newItem.getId(), this);
+            menu.removeMenuItem(newItem, this);
+            System.out.println("Menu item removed!");
         }
     }
     @Override
